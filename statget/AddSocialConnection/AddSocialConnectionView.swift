@@ -13,26 +13,21 @@ struct AddSocialConnectionView: View {
     
     var body: some View {
         NavigationStack {
-            VStack(alignment: .leading) {
-                List {
-                    ForEach(viewModel.allowedSocialMedias) { socialMedia in
-                        HStack {
-                            Image(socialMedia.iconName)
-                                .renderingMode(.template)
-                                .resizable()
-                                .scaledToFit()
-                                .frame(maxHeight: 24)
-                            
-                            Text(socialMedia.displayName)
-                        }
+            List {
+                ForEach(viewModel.allowedSocialMedias) { socialMedia in
+                    HStack {
+                        Image(socialMedia.iconName)
+                            .renderingMode(.template)
+                            .resizable()
+                            .scaledToFit()
+                            .frame(maxHeight: 24)
+                        
+                        Text(socialMedia.displayName)
                     }
                 }
-                .listStyle(.insetGrouped)
             }
-            .padding(.vertical)
+            .listStyle(.insetGrouped)
         }
-        .frame(maxWidth: .infinity, alignment: .leading)
-        .edgesIgnoringSafeArea(.bottom)
         .navigationTitle("Add a connection")
         .navigationBarTitleDisplayMode(.large)
     }
